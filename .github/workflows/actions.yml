@@ -1,0 +1,19 @@
+name: Ejecutar script
+
+on:
+  push:
+    branches:
+      - main
+      - qa
+      - dev
+jobs:
+  ejecutar-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chequear el repositorio
+        uses: actions/checkout@v3
+
+      - name: Ejecutar script con secreto
+        run: |
+          echo "Usando el token"
+          echo "${{ secrets.TOKEN_ACCESO }}"
